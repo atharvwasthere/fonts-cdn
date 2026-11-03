@@ -14,11 +14,11 @@ Include the CDN stylesheet in your `<head>`:
 ```html
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/atharvwasthere/fonts-cdn@v1.0.0/fonts.css"
+  href="https://cdn.jsdelivr.net/gh/atharvwasthere/fonts-cdn@v1.1.0/fonts.css"
 />
 ```
 
-> ✅ Version is pinned (`@v1.0.0`) for stability.
+> ✅ Version is pinned (`@v1.1.0`) for stability.
 > Use `@latest` if you want to always pull the newest release.
 
 ---
@@ -58,6 +58,7 @@ h1, h2 {
 * **Satoshi** → Variable (Normal + Italic, 300–900)
 * **Segment** → Regular
 * **Zodiak** → Variable (Normal + Italic, 100–900)
+* **Geist Serif** → Regular only, no italic (Vercel, SIL OFL; licence in `fonts/GeistSerif/OFL.txt`)
 
 ---
 
@@ -76,12 +77,12 @@ If you want faster first paint, preload your main font:
 ```html
 <link
   rel="preload"
-  href="https://cdn.jsdelivr.net/gh/atharvwasthere/fonts-cdn@v1.0.0/fonts/satoshi/Satoshi-Variable.woff2"
+  href="https://cdn.jsdelivr.net/gh/atharvwasthere/fonts-cdn@v1.1.0/fonts/satoshi/Satoshi-Variable.woff2"
   as="font" type="font/woff2" crossorigin="anonymous"
 />
 <link
   rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/atharvwasthere/fonts-cdn@v1.0.0/fonts.css"
+  href="https://cdn.jsdelivr.net/gh/atharvwasthere/fonts-cdn@v1.1.0/fonts.css"
 />
 ```
 
@@ -112,20 +113,20 @@ Add an `@font-face` block for your new font:
 ```css
 @font-face {
   font-family: "My New Font";
-  src: url("https://cdn.jsdelivr.net/gh/atharvwasthere/fonts-cdn@v1.0.1/fonts/MyNewFont/MyNewFont-Regular.woff2") format("woff2"),
-       url("https://cdn.jsdelivr.net/gh/atharvwasthere/fonts-cdn@v1.0.1/fonts/MyNewFont/MyNewFont-Regular.woff") format("woff");
+  src: url("./fonts/MyNewFont/MyNewFont-Regular.woff2") format("woff2"),
+       url("./fonts/MyNewFont/MyNewFont-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 ```
 
-> ⚠️ Use **exact same URL structure** as JSDelivr expects (`gh/<username>/<repo>@<version>/...`).
+> ⚠️ Keep URLs **relative** (`./fonts/...`). They resolve against the tag `fonts.css` was loaded from, so a new release needs no URL edits.
 
 ### 3. Bump version
 
 * Update version number in README examples.
-* Tag a new release in Git (`git tag v1.0.1 && git push origin v1.0.1`).
+* Tag a new release in Git (`git tag v1.2.0 && git push origin v1.2.0`).
 * JSDelivr will automatically serve the new version.
 
 ### 4. Test it
